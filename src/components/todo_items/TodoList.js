@@ -10,10 +10,7 @@ export default function TodoList({todoItems, deleteTodo}) {
                 </div>
             )
         }
-        )
-    ) : (
-        <p className="center">You do not have anything left! Enjoy!</p>
-    )
+    )) : (<p className="center">You do not have anything left! Enjoy!</p>)
 
 
     return (
