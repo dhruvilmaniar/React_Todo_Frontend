@@ -24,13 +24,22 @@ class TodoList extends React.Component {
 
     }
 
-    addTodoItem = (item) => {
-        item.id = Math.random()*100;
-        let newTodos = [...this.state.todos,item];
+    addTodoItem = (newItemObj) => {
+        newItemObj.id = Math.random()*100;
+        let newStateList = [...this.state.todos, newItemObj];
         this.setState({
-            todos : newTodos,
+            todos : newStateList,
         })
-        console.log(this.state.todos)
+    }
+    
+    deleteTodoItem = (id) => {
+        let newItems = this.state.todos.filter((items) => {
+            return items.id !== id;
+        }
+        )
+        this.setState({
+            todos: newItems,
+        })
     }
     
 
@@ -38,7 +47,7 @@ class TodoList extends React.Component {
 
         return (
             <div>
-                <Todo TodoListItems={this.state.todos}/>
+                <Todo deleteTodoItem={this.deleteTodoItem} TodoListItems={this.state.todos}/>
                 <AddTodo addTodo={this.addTodoItem} />
                 {/* {console.log(this.state.todos)} */}
             </div>
