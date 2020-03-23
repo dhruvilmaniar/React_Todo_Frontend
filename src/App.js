@@ -1,15 +1,41 @@
 import React from 'react'
-import TodoList from './components/todo_items/TodoList'
+import TodoList from './components/TodoList'
+import AddTodo from './components/todo_items/AddTodo'
 
 class App extends React.Component {
-    state = {}
+    state = {
+        todos: [
+            {id:1, content:"Complete this App!"},
+            {id:2, content:"Complete TSSN!"},
+        ]
+    }
+
+    deleteTodo = (id) => {
+        let todos = this.state.todos.filter((item) => {
+            return item.id !== id;
+        }
+        )
+        this.setState({
+            todos: todos,
+        })
+    }
+
+    addTodo = (todo) => {
+        todo.id = Math.round(Math.random()*10000);
+        let todos = [...this.state.todos,todo];
+        this.setState({todos:todos});
+    }
+    
+
+
 
     render() {
         return (
-            <React.Fragment>
-                <p>This is from app.js</p>
-                <TodoList />
-            </React.Fragment>
+            <div className="todo-app container">
+                <h1 className="center blue-text">Todo List</h1>
+                <TodoList todoItems={this.state.todos} deleteTodo={this.deleteTodo} />
+                <AddTodo addTodo = {this.addTodo} />
+            </div>
         )
     }
 }
