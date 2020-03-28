@@ -22,7 +22,7 @@ class TodoMain extends React.Component {
     }
 
     addTodo = (todo) => {
-        todo.id = Math.round(Math.random()*10000);
+        todo.id = Math.round(Math.random()*100);
         let todos = [...this.state.todos,todo];
         this.setState({todos:todos});
     }
