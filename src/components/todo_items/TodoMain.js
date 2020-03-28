@@ -1,7 +1,7 @@
 import React from 'react'
-import TodoList from './components/todo_items/TodoList'
-import AddTodo from './components/todo_items/AddTodo'
-import Counts from './components/Counts'
+import TodoList from './TodoList'
+import AddTodo from './AddTodo'
+import Counts from './TodoCounts'
 
 class TodoMain extends React.Component {
     state = {

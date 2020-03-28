@@ -1,7 +1,7 @@
 import React from 'react'
 import {BrowserRouter, Route, Switch} from "react-router-dom"
 import NavBar from './components/NavBar'
-import TodoMain from './main'
+import TodoMain from './components/todo_items/TodoMain'
 import Feed from './components/Feed'
 import PlaceHolder2 from './components/PlaceHolder2'
 import IndId from './components/IndId'
