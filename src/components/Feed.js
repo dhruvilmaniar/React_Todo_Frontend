@@ -1,28 +1,14 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import {Link} from 'react-router-dom'
 import FeedImage from './pokeball.png'
+import { connect } from 'react-redux'
 
-export default class Feed extends Component {
+class Feed extends Component {
 
-    state = {
-        posts : []
-    }
-    
-    componentDidMount() {
-        axios.get("https://jsonplaceholder.typicode.com/posts/")
-            .then((response) => {
-                console.log(response)
-                this.setState({
-                    posts: response.data.slice(0,10)
-                })
-            })
-    }
-    
-    
     render() {
 
-        const {posts} = this.state
+        // console.log(this.props)
+        const {posts} = this.props
 
         const ImageStyle = {
             "position": "absolute",
@@ -62,3 +48,13 @@ export default class Feed extends Component {
         )
     }
 }
+
+
+const mapStateToProps = (state) => {
+    return {
+        posts: state.posts
+    }
+}
+
+
+export default connect(mapStateToProps)(Feed)
