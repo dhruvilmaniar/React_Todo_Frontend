@@ -7,7 +7,6 @@ class Feed extends Component {
 
     render() {
 
-        // console.log(this.props)
         const {posts} = this.props
 
         const ImageStyle = {
@@ -19,7 +18,7 @@ class Feed extends Component {
 
         const postStyle = {
             "overflow" : "hidden",
-            "padding-left" : "80px"
+            "paddingLeft" : "80px"
         }
 
         const postsList = posts.length ? (
@@ -55,6 +54,5 @@ const mapStateToProps = (state) => {
         posts: state.posts
     }
 }
-
 
 export default connect(mapStateToProps)(Feed)

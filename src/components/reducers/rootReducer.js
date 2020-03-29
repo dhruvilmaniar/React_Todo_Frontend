@@ -16,11 +16,34 @@ const initState = {
             "body": "et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium quis pariatur\nmolestiae porro eius odio et labore et velit aut"
         },
     ],
+
+    todos : [
+        {
+            "id" : 1,
+            "content" : "Start DCOM",
+        },
+        {
+            "id" : 2,
+            "content" : "Start VLSI",
+        }
+    ],
 }
 
 
 const rootReducer = (state = initState, action) => {
+    console.log(action)
+    if (action.type === "DELETE_POST"){
+        const filteredPosts = state.posts.filter((item) => {
+            return item.id !== action.id
+        })
+        console.log(filteredPosts)
+        return {
+            ...state,
+            posts: filteredPosts,
+        }
+    }
     return state;
 }
+
 
 export default rootReducer
